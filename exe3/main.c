@@ -9,7 +9,6 @@ volatile int flag_f_r = 0;
 
 volatile bool alarme_ativo = false;
 volatile bool alarme_disparou = false;
-alarm_id_t lp_alarm_id = -1;
 
 void btn_callback(uint gpio, uint32_t events) {
     if (events == 0x4) { // fall edge
@@ -44,6 +43,7 @@ int main() {
 
     int pressionado = 0;
     int ligado = 0;
+    int lp_alarm_id = 0;
     
     while (true) {
         if(flag_f_r){
